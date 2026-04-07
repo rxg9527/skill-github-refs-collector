@@ -1,0 +1,4 @@
+interface:
+  display_name: "GitHub Refs Collector"
+  short_description: "Search, clone, classify, and index GitHub repos"
+  default_prompt: "Use $github-refs-collector to add GitHub repositories into my github_refs index."
