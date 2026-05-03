@@ -8,6 +8,7 @@ description: 在当前 `github_refs` 索引仓库中搜索 GitHub 仓库、确�
 为当前 `github_refs` 目录体系执行 GitHub 仓库收集、归类、索引维护和确认闭环。
 
 先读取 [`references/taxonomy.md`](references/taxonomy.md) 了解分类规则；更新索引与日志前，读取 [`references/readme-log-format.md`](references/readme-log-format.md)。
+如果仓库地址已知，先按 [`references/timeout-policy.md`](references/timeout-policy.md) 估算仓库体积并选择 clone 超时窗口。
 
 ## 核心原则
 
@@ -18,6 +19,7 @@ description: 在当前 `github_refs` 索引仓库中搜索 GitHub 仓库、确�
 - `README.md` 里的仓库条目必须是 Markdown 可跳转链接，并带一句摘要。
 - `log/YYMMDD.md` 必须记录 URL、Star、Fork、摘要、目标路径和执行结果。
 - 人工确认优先使用技能内脚本 `scripts/open_github_https.sh` 调用 macOS 默认浏览器
+- `git clone` 使用体积感知的等待窗口；无法估算体积时，默认等待 180 秒。
 
 ## 标准流程
 
@@ -26,6 +28,7 @@ description: 在当前 `github_refs` 索引仓库中搜索 GitHub 仓库、确�
 - 如果用户只给仓库名，先搜索 GitHub，确认唯一仓库地址。
 - 如果用户给了完整 URL，直接使用该 URL。
 - 记录最终仓库的 HTTPS 地址。
+- 如果能直接从 URL 识别 `owner/repo`，先读取 GitHub 仓库元数据中的 `size` 作为粗略体积。
 - 读取 GitHub 页面上的 `star` 和 `fork`，不要从本地推断。
 
 ### 2. 本地查重
@@ -49,6 +52,12 @@ description: 在当前 `github_refs` 索引仓库中搜索 GitHub 仓库、确�
 git clone https://github.com/owner/repo <target-path>
 ```
 
+- 克隆时先按 [`references/timeout-policy.md`](references/timeout-policy.md) 选择等待窗口。
+- 如果选择的窗口内未完成：
+  - 中断当前 clone
+  - 保留已获得的上下文
+  - 停下来向用户说明卡点并等待指示
+- 不要为了等 clone 完成而无限轮询或长时间阻塞。
 - 完成后校验：
 
 ```bash
