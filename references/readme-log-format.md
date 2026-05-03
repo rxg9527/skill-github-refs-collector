@@ -7,7 +7,7 @@
 - 每个真实仓库条目都用 Markdown 可跳转链接：
 
 ```md
-- [repo-name](https://github.com/owner/repo): 一句话摘要。
+- [repo-name](https://github.com/owner/repo): 一句话摘要。本地体积：`123M`。
 ```
 
 - 摘要优先来自仓库 README 首屏，不要写成空泛标题。
@@ -34,6 +34,7 @@ log/YYMMDD.md
 - Star
 - Fork
 - README 摘要
+- 本地体积
 - 目标路径
 - 执行结果：`cloned` / `relocated` / `skipped_conflict`
 - 确认链接
@@ -47,6 +48,7 @@ log/YYMMDD.md
 - Star: `1.2k`
 - Fork: `345`
 - README 摘要: ...
+- 本地体积: `123M`
 - 目标路径: `...`
 - 执行结果: `cloned`
 - 确认链接: [repo-name](https://github.com/owner/repo)

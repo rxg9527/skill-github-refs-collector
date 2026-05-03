@@ -32,6 +32,19 @@ def git_origin(path: Path) -> str:
         return ""
 
 
+def local_size(path: Path) -> str:
+    try:
+        output = subprocess.check_output(
+            ["du", "-sh", str(path)],
+            text=True,
+            stderr=subprocess.DEVNULL,
+        ).strip()
+    except subprocess.CalledProcessError:
+        return ""
+    parts = output.split(maxsplit=1)
+    return parts[0] if parts else ""
+
+
 def find_readme(path: Path) -> Path | None:
     for candidate in README_CANDIDATES:
         file_path = path / candidate
@@ -86,6 +99,7 @@ def extract(path_text: str) -> dict[str, str]:
         "path": str(path),
         "url": git_origin(path),
         "summary": readme_summary(path),
+        "local_size": local_size(path),
     }
 
 
