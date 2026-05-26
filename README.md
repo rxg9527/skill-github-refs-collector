@@ -62,3 +62,63 @@
 - [`references/taxonomy.md`](references/taxonomy.md)
 - [`references/readme-log-format.md`](references/readme-log-format.md)
 - [`references/timeout-policy.md`](references/timeout-policy.md)
+
+## 目录示例
+
+```text
+.
+├── 01-AI
+│   ├── 01-AI演讲与内容
+│   ├── 02-模型管理工具
+│   ├── 03-skills
+│   ├── 04-AI应用
+│   ├── 05-知识与记忆
+│   └── 06-Agent工作流
+├── 02-平台生态
+│   ├── Apple
+│   ├── Docs
+│   └── System
+├── 03-跨平台开发
+│   └── Flutter
+├── 04-苹果开发基础设施
+│   ├── Architecture
+│   ├── Binary-Analysis
+│   ├── Device
+│   ├── Diagnostics
+│   ├── Networking
+│   └── System-Support
+├── 05-应用与演示
+│   ├── Android
+│   ├── iOS
+│   ├── macOS
+│   └── 跨平台
+├── 06-学习与参考
+│   ├── Apple
+│   ├── Swift
+│   └── Web
+├── 07-网页与浏览器工具
+│   ├── Extensions
+│   └── Productivity
+├── 08-系统与环境
+│   ├── 01-Git工具
+│   ├── 02-macOS
+│   ├── 03-服务管理
+│   ├── 04-网络代理
+│   └── 05-文件同步
+├── 09-敏感与灰色地带
+│   ├── 01-账号自动化
+│   ├── 02-自动化脚本
+│   ├── 03-浏览器脚本
+│   ├── 04-聊天导出与分析
+│   ├── 05-聊天插件
+│   ├── 06-下载工具
+│   ├── 07-媒体元数据
+│   ├── 08-IPTV资源
+│   ├── 09-源码泄露
+│   ├── 10-内容导出
+│   └── 11-历史安装包
+├── 10-待识别内容
+└── docs
+    ├── log
+    └── README.md
+```
